@@ -12,17 +12,14 @@ namespace Assignment2
 
         void Start()
         {
-
             Console.Write("Enter title: ");
             string title = Console.ReadLine();
-
             Console.Write("Enter author: ");
             string author = Console.ReadLine();
             Console.WriteLine(); //whiteline
 
             Book book = new(title, author);
             Console.WriteLine(book.ToString());
-
         }
     }
 }

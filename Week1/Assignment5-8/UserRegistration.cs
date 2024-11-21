@@ -8,6 +8,7 @@ namespace Assignment58
 {
     public class UserRegistration
     {
+        private PasswordValidator passwordValidator = new PasswordValidator();
 
         public User RegisterUser()
         {
@@ -17,11 +18,8 @@ namespace Assignment58
             string password = Console.ReadLine();
             Console.Write("Enter your email; ");
             string email = Console.ReadLine();
-
-
-            PasswordValidator passwordValidator = new PasswordValidator();
+            
             bool isStrongPassword = passwordValidator.isValid(password);
-
             if (isStrongPassword)
             {
                 User user = new(username, password, email);
@@ -30,7 +28,6 @@ namespace Assignment58
             }
             Console.WriteLine("Password is too weak. It must be at least 8 characters long and contain an uppercase letter and a number.");
             return null;
-           
         }
     }
 }

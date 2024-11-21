@@ -10,35 +10,25 @@ namespace Assignment58
     {
         public bool isValid(string password)
         {
-
             bool hasNumber = false;
             bool hasUppercase = false;
+            bool hasLowercase = false;
 
-            if (password.Length < 8)
+            foreach (char c in password)
             {
-                return false;
+                if (hasLowercase && hasNumber && hasUppercase)
+                    break;
+                
+
+                if (char.IsUpper(c))
+                    hasUppercase = true;
+                else if (char.IsNumber(c))
+                    hasNumber = true;
+                else if (char.IsLower(c))
+                    hasLowercase = true;
             }
-            else
-            {
 
-
-                for (int i = 0; i < password.Length; i++)
-                {
-                    if (char.IsUpper(password[i]))
-                    {
-                        hasUppercase = true;
-                    }
-                    else if (char.IsNumber(password[i]))
-                    {
-                        hasNumber = true;
-                    }
-                }
-
-                if (hasNumber == true && hasUppercase == true)
-                    return true;
-                else
-                    return false;
-            }
+            return (hasLowercase && hasNumber && hasUppercase && password.Length >= 8);
         }
     }
 }

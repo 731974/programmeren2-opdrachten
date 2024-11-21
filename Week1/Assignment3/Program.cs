@@ -10,19 +10,16 @@
 
         void Start()
         {
-
-            Console.Write("Enter the Length of the Rectangle: ");
+            Console.Write("Enter the length of the Rectangle: ");
             double length = double.Parse(Console.ReadLine());
-
             Console.Write("Enter the height of the Rectangle: ");
-            double height = double.Parse(Console.ReadLine());
+            double width = double.Parse(Console.ReadLine());
 
             Rectangle rectangle = new Rectangle();
-            rectangle.Width = length;
-            rectangle.Length = height;
+            rectangle.Width = width;
+            rectangle.Length = length;
 
             Console.WriteLine($"Area of rectangle is: {rectangle.Area}");
-
         }
     }
 }

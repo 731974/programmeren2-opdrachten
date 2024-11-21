@@ -8,12 +8,11 @@ namespace Assignment58
 {
     public class User
     {
-
-        public string Username;
+        private PasswordValidator passwordValidator = new PasswordValidator();
+        
+        public string Username { get; set; }
 
         private string _password;
-
-            
 
         public string Password
         {
@@ -24,17 +23,14 @@ namespace Assignment58
             } 
             set
             {
-                PasswordValidator passwordValidator = new PasswordValidator();
                 if (passwordValidator.isValid(value))
                     _password = value;
-                else
-                   return;
+                return;
 
             }
-
         }
 
-        public string Email;
+        public string Email { get; set; }
 
         public User(string username, string password, string email)
         {

@@ -8,7 +8,6 @@ namespace Assignment3
 {
     public class Rectangle
     {
-
         public double Length { get; set; }
         public double Width { get; set; }
 
@@ -18,6 +17,5 @@ namespace Assignment3
                 return Length * Width;
             }
         }
-
     }
 }

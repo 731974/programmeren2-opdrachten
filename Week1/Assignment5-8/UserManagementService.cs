@@ -8,14 +8,12 @@ namespace Assignment58
 {
     public class UserManagementService
     {
-
         User[] users = new User[10];
         int userCount = 0;
+        private UserRegistration userRegistration = new UserRegistration();
 
         public void AddUser()
         {
-
-            UserRegistration userRegistration = new UserRegistration();
             User user = userRegistration.RegisterUser();
 
             if (user != null && userCount < users.Length)

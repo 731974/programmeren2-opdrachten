@@ -9,8 +9,7 @@ namespace Assignment2
 {
     public class Book
     {
-        private string title;
-        private string author;
+        private string title, author;
 
         public Book(string title, string author)
         {

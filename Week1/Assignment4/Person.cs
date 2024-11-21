@@ -8,7 +8,6 @@ namespace Assignment4
 {
     public class Person
     {
-
         public string Name { get; set; }
        
         private int _age;
@@ -25,7 +24,6 @@ namespace Assignment4
 
                 _age = value;
             }
-           
         }
 
         public Person(string name, int age)
