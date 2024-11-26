@@ -24,9 +24,7 @@ namespace Assignment5to7
         public void DisplayDetails()
         {
             Console.WriteLine("full-time employee with fixed salary:");
-            Console.WriteLine($"Name: {this.Name}");
-            Console.WriteLine($"Job Title: {this.JobTitle}");
-            Console.WriteLine($"Salary: {this.Salary}");
+            base.DisplayDetails();
         }
 
         public override string GetJobDetails()

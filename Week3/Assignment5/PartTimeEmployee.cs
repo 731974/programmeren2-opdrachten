@@ -22,9 +22,8 @@ namespace Assignment5to7
         public void DisplayDetails()
         {
             Console.WriteLine("Part-time employee with hourly wage:");
-            Console.WriteLine($"Name: {this.Name}");
-            Console.WriteLine($"Job Title: {this.JobTitle}");
-            Console.WriteLine($"Salary: {this.GetSalary()}");
+            base.DisplayDetails();
+
         }
 
         public decimal GetSalary()

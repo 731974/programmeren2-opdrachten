@@ -23,13 +23,15 @@ namespace Assignment5to7
 
         public void DisplayDetails()
         {
-            Console.WriteLine("");
+            Console.WriteLine($"Name: {Name}");
+            Console.WriteLine($"Job Title: {JobTitle}");
+            Console.WriteLine($"Salary: {Salary}");
         }
 
 
         public decimal GetSalary()
         {
-            return 0;
+            return Salary;
         }
 
         public abstract string GetJobDetails();
