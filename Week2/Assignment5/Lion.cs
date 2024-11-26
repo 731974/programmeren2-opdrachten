@@ -9,9 +9,9 @@ namespace Assignment5to7
     public class Lion : Animal
     {
 
-        public string Name;
+        public string Name { get; set; }
 
-        public Lion(string name) : base(name, "Lion")
+        public Lion(string name) : base(name)
         {
             Name = name;
         }
@@ -19,14 +19,14 @@ namespace Assignment5to7
         public override string MakeSound()
         {
 
-            return "Roar (Lion)";
+            return $"Roar ({this.GetType().Name})";
 
         }
 
         public override string Feed()
         {
 
-            return "Feeding the lion meat";
+            return base.ToString() + "meat";
 
         }
     }

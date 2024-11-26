@@ -8,7 +8,6 @@ namespace Assignment4
 {
     public abstract class Employee
     {
-
         public string Name { get; set; }
         public decimal Salary { get; set; }
 
@@ -21,7 +20,10 @@ namespace Assignment4
         public abstract decimal CalculateBonus();
 
         public virtual void DisplayEmployeeDetails()
-        { }
+        {
+            Console.WriteLine($"Salary: {Salary:f2}");
+            Console.WriteLine($"Bonus: {CalculateBonus():f2}");
+        }
 
     }
 }

@@ -8,16 +8,13 @@ namespace Assignment5to7
 {
     public abstract class Animal
     {
-
         public string Name { get; set; }
         public string Species { get; set; }
 
-        public Animal(string name, string species)
+        public Animal(string name)
         {
-
             Name = name;
-            Species = species;
-
+            Species = this.GetType().Name;
         }
 
         public abstract string MakeSound();

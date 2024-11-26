@@ -8,11 +8,9 @@ namespace Assignment1
 {
     public class ElectricCar : Vehicle
     {
-
         public override void StartEngine()
         {
             Console.WriteLine("Electric engine started");
         }
-
     }
 }

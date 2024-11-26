@@ -10,13 +10,11 @@
 
         void Start()
         {
-
-            Circle circle = new(50);
-            circle.GetShapeInfo();
+            Circle circle = new(5);
+            Console.WriteLine(circle.GetShapeInfo());
 
             Rectangle rectangle = new(50, 50);
-            rectangle.GetShapeInfo();
-
+            Console.WriteLine(rectangle.GetShapeInfo()); 
         }
     }
 }

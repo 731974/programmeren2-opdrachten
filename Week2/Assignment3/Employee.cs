@@ -8,20 +8,16 @@ namespace Assignment3
 {
     public class Employee : Person
     {
-
         public string JobTitle { get; set; }
 
         public Employee(string name, int age, string jobTitle) : base (name, age)
         {
-
             JobTitle = jobTitle;
-
         }
 
         public override string ToString()
         {
-            return $"Employee: {Name}, Age: {Age}, Job Title: {JobTitle}";
+            return base.ToString() + $"Job Title: {JobTitle}";
         }
-
     }
 }

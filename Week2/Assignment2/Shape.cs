@@ -9,14 +9,11 @@ namespace Assignment2
     public abstract class Shape
     {
 
-
-
         public abstract double CalculateArea();
-
 
         public virtual string GetShapeInfo()
         {
-            return "Shape details:";
+            return $"{this.GetType().Name} details: ";
         }
     }
 }

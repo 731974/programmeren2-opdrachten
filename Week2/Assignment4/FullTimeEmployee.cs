@@ -7,11 +7,8 @@ using static System.Net.Mime.MediaTypeNames;
 
 namespace Assignment4
 {
-
-
     public class FullTimeEmployee : Employee
     {
-
         decimal Salary;
         decimal CalculateBonusAmount;
 
@@ -24,18 +21,14 @@ namespace Assignment4
 
         public override decimal CalculateBonus()
         {
-
-            return (decimal)0.1 * this.Salary;
-    
+            return 0.1M * Salary;
         }
 
         public override void DisplayEmployeeDetails()
         {
-
             Console.WriteLine($"Full-time Employee: {Name}");
             Console.WriteLine($"Salary: {Salary:F2}");
             Console.WriteLine($"Bonus: {CalculateBonusAmount:F2}");
-
         }
 
         public FullTimeEmployee() : base("", 0)

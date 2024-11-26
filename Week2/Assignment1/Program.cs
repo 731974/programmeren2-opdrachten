@@ -10,14 +10,12 @@
 
         void Start()
         {
-
             Vehicle vehicle = new();
             vehicle.StartEngine();
             ElectricCar electricCar = new();
             electricCar.StartEngine();
             DieselCar dieselCar = new();
             dieselCar.StartEngine();
-
         }
     }
 }

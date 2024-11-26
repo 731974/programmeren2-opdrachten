@@ -10,7 +10,6 @@
 
         void Start()
         {
-
             Employee employee = new("John Doe", 30, "Developer");
             Console.WriteLine(employee);
 

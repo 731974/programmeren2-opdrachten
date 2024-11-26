@@ -12,27 +12,17 @@ namespace Assignment5to7
 {
     public class Zoo
     {
-
         public void DisplayAnimalDetails(Animal animal)
         {
-
             Console.WriteLine(animal);
-
         }
 
         public void MakeAllAnimalsSound(Animal[] animals)
         {
-
-            for (int i = 0; i < animals.Length; i++)
+            foreach(Animal animal in animals)
             {
-
-                Animal animal = animals[i];
                 Console.WriteLine(animal.MakeSound());
-
             }
         }
     }
 }
-
-
-

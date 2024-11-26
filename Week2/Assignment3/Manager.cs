@@ -8,8 +8,7 @@ namespace Assignment3
 {
     public class Manager : Employee
     {
-
-        public string Department;
+        public string Department { get; set; }
 
         public Manager(string name, int age, string jobTitle, string department) : base(name, age, jobTitle) {
 
@@ -18,8 +17,7 @@ namespace Assignment3
 
         public override string ToString()
         {
-            return $"Manager: {Name}, Age: {Age}, Job Title: {JobTitle}, Department: {Department}";
+            return base.ToString() + $", Department: {Department}";
         }
-
     }
 }

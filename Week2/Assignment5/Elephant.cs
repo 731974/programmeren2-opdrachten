@@ -8,26 +8,21 @@ namespace Assignment5to7
 {
     public class Elephant : Animal
     {
+        public string Name { get; set; }
 
-        public string Name;
-
-        public Elephant(string name) : base(name, "Elephant")
+        public Elephant(string name) : base(name)
         {
             Name = name;
         }
 
         public override string MakeSound()
         {
-
-            return "Trumpet (Elephant)";
-    
+            return $"Trumpet ({this.GetType().Name})";
         }
 
         public override string Feed()
         {
-
-            return "Feeding the elephant vegetables";
-
+            return base.ToString() + " vegetables";
         }
     }
 }

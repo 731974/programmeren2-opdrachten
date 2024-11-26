@@ -8,29 +8,21 @@ namespace Assignment2
 {
     public class Circle : Shape
     {
+        public double Radius { get; set; }
 
         public Circle(double radius)
         {
-
             Radius = radius;
-
         }
-
-        public double Radius { get; set; }
 
         public override double CalculateArea()
         {
-
-            return Radius * Radius * Math.PI;
-
+            return Math.Pow(Radius, 2) * Math.PI;
         }
 
         public override string GetShapeInfo()
         {
-
-            return $"Circle area: {this.CalculateArea():f2} \nCircle details: Circle with radius: {Radius}";
-
+            return  $"{this.GetType().Name} area: {this.CalculateArea():f2} \n{base.GetShapeInfo()}{this.GetType().Name} with radius: {Radius}";
         }
-
     }
 }

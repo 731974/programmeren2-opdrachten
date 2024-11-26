@@ -11,16 +11,10 @@ namespace Assignment5to7
 
         public void FeedAnimals(Animal[] animals)
         {
-
-            for(int i = 0; i < animals.Length; i++)
+            foreach (Animal animal in animals)
             {
-
-                Animal animal = animals[i];
-               Console.WriteLine( animal.Feed());
-
+                Console.WriteLine(animal.Feed());
             }
-
         }
-
     }
 }

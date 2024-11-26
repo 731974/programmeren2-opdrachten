@@ -8,13 +8,11 @@ namespace Assignment1
 {
     public class Vehicle
     {
-
         public string Model { get; set; }
-
+        
         public virtual void StartEngine()
         {
             Console.WriteLine("Engine started");
         }
-
     }
 }

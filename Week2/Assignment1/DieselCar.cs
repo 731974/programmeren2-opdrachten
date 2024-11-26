@@ -8,7 +8,6 @@ namespace Assignment1
 {
     public class DieselCar : Vehicle
     {
-
         public override void StartEngine()
         {
             Console.WriteLine("Diesel engine started");   
