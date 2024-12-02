@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Opdr1", "Opdr1\Opdr1.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\Interfaces.csproj", "{C3FFDA35-A449-4C4D-968C-29715736FA73}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List", "List\List.csproj", "{42EA3E61-1510-43AE-AA02-40F388EB2575}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3FFDA35-A449-4C4D-968C-29715736FA73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3FFDA35-A449-4C4D-968C-29715736FA73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3FFDA35-A449-4C4D-968C-29715736FA73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

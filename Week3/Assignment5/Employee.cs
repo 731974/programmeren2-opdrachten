@@ -28,7 +28,6 @@ namespace Assignment5to7
             Console.WriteLine($"Salary: {Salary}");
         }
 
-
         public decimal GetSalary()
         {
             return Salary;

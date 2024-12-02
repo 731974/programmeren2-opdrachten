@@ -16,11 +16,6 @@ namespace Assignment5to7
             Salary = salary;
         }
 
-        public decimal GetSalary()
-        {
-            return Salary;
-        }
-
         public void DisplayDetails()
         {
             Console.WriteLine("full-time employee with fixed salary:");

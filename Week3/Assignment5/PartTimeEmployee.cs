@@ -26,11 +26,6 @@ namespace Assignment5to7
 
         }
 
-        public decimal GetSalary()
-        {
-            return HourlyWage * HoursWorked;
-        }
-
         public override string GetJobDetails()
         {
             return "Part-time employee with hourly wage:";
