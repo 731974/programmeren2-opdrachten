@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interfaces", "Interfaces\In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "List", "List\List.csproj", "{42EA3E61-1510-43AE-AA02-40F388EB2575}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoorGame", "DoorGame\DoorGame.csproj", "{33465D75-A40F-487A-9022-83A38264428A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42EA3E61-1510-43AE-AA02-40F388EB2575}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33465D75-A40F-487A-9022-83A38264428A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33465D75-A40F-487A-9022-83A38264428A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33465D75-A40F-487A-9022-83A38264428A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33465D75-A40F-487A-9022-83A38264428A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
