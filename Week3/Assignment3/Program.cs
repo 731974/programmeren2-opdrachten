@@ -14,7 +14,6 @@
             Contractor contractor = new Contractor(50, 100);
             contractor.Work();
             Console.WriteLine($"Contractor payment: {contractor.GetPayment()}");
-
         }
     }
 }

@@ -8,8 +8,6 @@ namespace Assignment5to7
 {
     public interface IReportable
     {
-
         void GenerateReport();
-
     }
 }

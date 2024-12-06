@@ -16,9 +16,8 @@ namespace Assignment5to7
             Salary = salary;
         }
 
-        public void DisplayDetails()
+        public override void DisplayDetails()
         {
-            Console.WriteLine("full-time employee with fixed salary:");
             base.DisplayDetails();
         }
 
@@ -30,7 +29,7 @@ namespace Assignment5to7
         public void GenerateReport()
         {
             Console.WriteLine("Employee Report:");
-            DisplayDetails();
+            base.DisplayDetails();
         }
     }
 }

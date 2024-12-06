@@ -9,21 +9,18 @@ namespace Assignment5to7
 {
     public class PartTimeEmployee : Employee, IReportable
     {
+        decimal hourlyWage { get; set; }
+        int hoursWorked { get; set; }
 
-        public decimal HourlyWage { get; set; }
-        public int HoursWorked { get; set; }
-
-        public PartTimeEmployee(string name, string jobTitle, decimal hourlyRate, int hoursWorked) : base(name, jobTitle, hourlyRate * hoursWorked)
+        public PartTimeEmployee(string name, string jobTitle, decimal hourlyRate, int hoursWorked) : base(name, jobTitle, (hourlyRate * hoursWorked))
         {
-            HourlyWage = hourlyRate;
-            HoursWorked = hoursWorked;
+            this.hourlyWage = hourlyRate;
+            this.hoursWorked = hoursWorked;
         }
 
-        public void DisplayDetails()
+        public override void DisplayDetails()
         {
-            Console.WriteLine("Part-time employee with hourly wage:");
             base.DisplayDetails();
-
         }
 
         public override string GetJobDetails()
@@ -34,7 +31,7 @@ namespace Assignment5to7
         public void GenerateReport()
         {
             Console.WriteLine("Employee Report:");
-            DisplayDetails();
+            base.DisplayDetails();
         }
     }
 }

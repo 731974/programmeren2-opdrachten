@@ -8,7 +8,6 @@ namespace Assignment2
 {
     public class FullTimeEmployee : IEmployee
     {
-
         public decimal Salary { get; }
 
         public FullTimeEmployee(decimal salary)

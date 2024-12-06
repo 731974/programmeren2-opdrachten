@@ -8,8 +8,6 @@ namespace Assignment1
 {
     public interface IDriveable
     {
-
         void Drive();
-
     }
 }

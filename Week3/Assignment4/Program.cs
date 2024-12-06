@@ -10,13 +10,10 @@
 
         void Start()
         {
-
             Manager manager = new();
             manager.DisplayRole();
-
             Developer developer = new();
             developer.DisplayRole();
-
         }
     }
 }

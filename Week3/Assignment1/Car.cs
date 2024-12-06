@@ -8,11 +8,9 @@ namespace Assignment1
 {
     public class Car : IDriveable
     {
-
         public void Drive()
         {
             Console.WriteLine($"Car is driving");
         }
-
     }
 }

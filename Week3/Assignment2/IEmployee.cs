@@ -8,8 +8,6 @@ namespace Assignment2
 {
     public interface IEmployee
     {
-
         decimal GetSalary();
-
     }
 }

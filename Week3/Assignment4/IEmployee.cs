@@ -8,11 +8,9 @@ namespace Assignment4
 {
     public interface IEmployee
     {
-
         void DisplayRole()
         {
             Console.WriteLine("Employee role");
         }
-
     }
 }

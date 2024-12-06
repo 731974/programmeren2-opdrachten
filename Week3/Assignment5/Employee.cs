@@ -8,21 +8,19 @@ namespace Assignment5to7
 {
     public abstract class Employee : IEmployeeOperations
     {
-
         public string Name { get; set; }
         public string JobTitle { get; set; }
         public decimal Salary { get; set; }
 
-        public Employee(string name, string jobTitle, decimal salary) {
-
+        protected Employee(string name, string jobTitle, decimal salary) {
             Name = name;
             JobTitle = jobTitle;
             Salary = salary;
-                
         }
 
-        public void DisplayDetails()
+        public virtual void DisplayDetails()
         {
+            Console.WriteLine(GetJobDetails());
             Console.WriteLine($"Name: {Name}");
             Console.WriteLine($"Job Title: {JobTitle}");
             Console.WriteLine($"Salary: {Salary}");
@@ -32,7 +30,7 @@ namespace Assignment5to7
         {
             return Salary;
         }
-
+        
         public abstract string GetJobDetails();
     }
 }

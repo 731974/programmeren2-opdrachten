@@ -8,10 +8,8 @@ namespace Assignment2
 {
     public class PartTimeEmployee
     {
-
-
-        public decimal HourlyWage { get; set; }
-        public int HoursWorked { get; set; }
+        decimal HourlyWage;
+        int HoursWorked;
 
         public PartTimeEmployee(decimal hourlyWage, int hoursWorked)
         {
@@ -23,6 +21,5 @@ namespace Assignment2
         {
             return HourlyWage * HoursWorked;
         }
-
     }
 }

@@ -10,13 +10,10 @@
 
         void Start()
         {
-
             Bike bike = new();
             bike.Drive();
-
             Car car = new();
             car.Drive();
-
         }
     }
 }
