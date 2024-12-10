@@ -8,12 +8,9 @@ namespace Assignment2
 {
     public class Boat : IVehicle
     {
-
         public void Start()
         {
-
             Console.WriteLine($"Propeller is spinning.");
-
         }
     }
 }

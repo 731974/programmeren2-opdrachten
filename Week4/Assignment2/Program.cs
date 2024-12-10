@@ -10,25 +10,18 @@
 
         void Start()
         {
-
             Dictionary<string, IVehicle> vehicles = new Dictionary<string, IVehicle>();
-
-            Boat boat = new();
-            Car car = new Car();
-
-            vehicles.Add("Boat", boat);
-            vehicles.Add("Car", car);
-
+            vehicles.Add("Boat", new Boat());
+            vehicles.Add("Car", new Car());
             StartAllVehicles(vehicles);
         }
 
         public void StartAllVehicles(Dictionary<string, IVehicle> vehicles)
         {
-
-            foreach(KeyValuePair<string, IVehicle> entry in vehicles)
+            foreach (KeyValuePair<string, IVehicle> vehicle in vehicles)
             {
-                Console.Write($"Starting {entry.Value.GetType().Name}: ");
-                entry.Value.Start();
+                Console.Write($"Starting {vehicle.Key}: ");
+                vehicle.Value.Start();
             }
         }
     }

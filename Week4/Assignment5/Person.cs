@@ -8,7 +8,6 @@ namespace Assignment5to7
 {
     public class Person
     {
-
         public string Name { get; set; }
         public int MembershipID { get; set; }
 
@@ -17,6 +16,5 @@ namespace Assignment5to7
             Name = name;
             MembershipID = membershipID;
         }
-
     }
 }

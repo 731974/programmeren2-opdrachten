@@ -8,9 +8,7 @@ namespace Assignment5to7
 {
     public interface IBorrowable
     {
-
         void Borrow();
         void Return();
-
     }
 }

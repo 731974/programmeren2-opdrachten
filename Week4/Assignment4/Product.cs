@@ -14,14 +14,11 @@ namespace Assignment4
 
         public Category Category { get; set; }
 
-
         public Product(string name, double price, Category category)
         {
-
             Name = name;
             Price = price;
             Category = category;
-
         }
 
         public override string ToString()

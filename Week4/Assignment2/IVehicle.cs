@@ -8,8 +8,6 @@ namespace Assignment2
 {
     public interface IVehicle
     {
-
         void Start();
-
     }
 }

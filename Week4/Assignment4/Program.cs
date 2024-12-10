@@ -10,14 +10,13 @@
 
         void Start()
         {
-
             List<Product> products = new List<Product>();
 
-            Product product0 = new("Stroopwafel", 2.00, (Category)Enum.Parse(typeof(Category), "Kitchenware"));
-            Product product1 = new("Mes", 21.00, (Category)Enum.Parse(typeof(Category), "Kitchenware"));
-            Product product2 = new("Lepel", 112.00, (Category)Enum.Parse(typeof(Category), "Kitchenware"));
-            Product product3 = new("Plant", 5.00, (Category)Enum.Parse(typeof(Category), "Stationary"));
-            Product product4 = new("Sleutel", 115.00, (Category)Enum.Parse(typeof(Category), "Stationary"));
+            Product product0 = new("Stroopwafel", 2.00, Category.Kitchenware);
+            Product product1 = new("Mes", 21.00, Category.Kitchenware);
+            Product product2 = new("Lepel", 112.00, Category.Stationary);
+            Product product3 = new("Plant", 5.00, Category.Stationary);
+            Product product4 = new("Sleutel", 115.00, Category.Kitchenware);
 
             products.Add(product0);
             products.Add(product1);
@@ -27,18 +26,13 @@
 
             PrintProducts(products);
             SortByPrice(products);
-
         }
-
 
         public void PrintProducts(List<Product> products)
         {
-
             for (int i = 0; i < products.Count; i++)
             {
-
                 Console.WriteLine($"{i+1}. {products[i]}");
-
             }
         }
 
@@ -49,17 +43,12 @@
 
         public List<Product> FilterByCategory(List<Product> products, Category category)
         {
-
             List<Product> filtered = new List<Product>();
 
-            foreach (Product product in products) { 
-            
-                if (product.Category == category)
-                {
-                    filtered.Add(product);
-                }
+            foreach (Product p in products) { 
+                if (p.Category == category)
+                    filtered.Add(p);
             }
-
             return filtered;
         }
     }

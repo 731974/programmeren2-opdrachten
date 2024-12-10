@@ -8,8 +8,6 @@ namespace Assignment5to7
 {
     public class Magazine : LibraryItem
     {
-
         public Magazine(string title, string author, string isbn) : base(title, author, isbn) { }
-
     }
 }

@@ -10,17 +10,12 @@
 
         void Start()
         {
-
-            List<Student> students = new List<Student>();
-
-            Student Pepijn = new("Pepijn", 1, 9.4);
-            students.Add(Pepijn);
-
-            Student Dirk = new("Dirk", 2, 5.4);
-            students.Add(Dirk);
-
-            Student Claudia = new("Claudia", 3, 3.4);
-            students.Add(Claudia);
+            List<Student> students = new List<Student>()
+            {
+                new("Pepijn", 1, 9.4),
+                new("Dirk", 2, 5.4),
+                new("Claudia", 3, 3.4)
+            };
         }
 
         public void DisplayAllStudents(List<Student> students)

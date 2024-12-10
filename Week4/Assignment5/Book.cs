@@ -8,10 +8,6 @@ namespace Assignment5to7
 {
     public class Book : LibraryItem
     {
-
-
         public Book(string title, string author, string isbn) : base(title, author, isbn) { }
-
-
     }
 }

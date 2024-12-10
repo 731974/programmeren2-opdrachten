@@ -8,7 +8,6 @@ namespace Assignment1
 {
     public class Student
     {
-
         public string Name { get; set; }
         public int ID { get; set; }
         public double Grade { get; set; }

@@ -8,17 +8,14 @@ namespace Assignment5to7
 {
     public abstract class LibraryItem : IBorrowable
     {
-
         public string Title { get; set; }
         public string Author { get; set; }
 
         public string ISBN { get; set; }
 
-       public bool IsBorrowed { get; set; }
+        public bool IsBorrowed { get; set; }
 
         public List<BorrowingRecord> BorrowingHistory { get; set; }
-
-
 
         public LibraryItem(string title, string author, string isbn) 
         {
@@ -31,11 +28,10 @@ namespace Assignment5to7
 
         public Person GetCurrentBorrower()
         {
-
             if (BorrowingHistory.Count == 0)
                 throw new InvalidOperationException();
-
-            return BorrowingHistory[BorrowingHistory.Count - 1].Borrower;
+            
+            return BorrowingHistory.Last().Borrower;
         }
 
         public void Borrow()
@@ -52,10 +48,6 @@ namespace Assignment5to7
         public override string ToString()
         {
             return $"Title: {Title}, Author: {Author}, ISBN: {ISBN}, Borrowed: {IsBorrowed}";
-
         }
-
-
-
     }
 }

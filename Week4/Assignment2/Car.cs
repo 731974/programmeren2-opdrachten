@@ -8,13 +8,9 @@ namespace Assignment2
 {
     public class Car : IVehicle
     {
-
         public void Start()
         {
-
             Console.WriteLine($"Engine is revving.");
-
         }
-
     }
 }

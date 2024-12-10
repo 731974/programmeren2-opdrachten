@@ -8,11 +8,8 @@ namespace Assignment5to7
 {
     public class BorrowingRecord
     {
-
         public Person Borrower { get; set; }
-
         public DateTime BorrowDate { get; set; }
-
         public DateTime DueDate { get; set;}
 
         public BorrowingRecord(Person borrower, DateTime borrowedDate, DateTime dueDate)
