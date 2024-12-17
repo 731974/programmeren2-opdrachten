@@ -10,9 +10,7 @@
 
         void Start()
         {
-
             AskNumber();
-
         }
 
         public int AskNumber()
@@ -34,7 +32,7 @@
                 Console.WriteLine("AskNumber execution completed.");
             }
 
-             return number;
+            return number;
         }
     }
 }

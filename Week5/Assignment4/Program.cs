@@ -10,32 +10,27 @@
 
         void Start()
         {
-
             TryDivision();
-
         }
 
 
         public void TryDivision()
         {
-
-           try
+            try
             {
                 Console.Write("Enter the first number: ");
                 int firstNumber = int.Parse(Console.ReadLine());
-
                 Console.Write("Enter the second number: ");
                 int secondNumber = int.Parse(Console.ReadLine());
 
                 int result = firstNumber / secondNumber;
-
                 Console.WriteLine($"{firstNumber} / {secondNumber} = {result}");
             }
-            catch(FormatException formatEx)
+            catch (FormatException formatEx)
             {
                 Console.WriteLine("Invalid input. Please enter a valid number.");
             }
-            catch(DivideByZeroException zeroEx)
+            catch (DivideByZeroException zeroEx)
             {
                 Console.WriteLine("Cannot divide by zero. Please try again.");
             }
@@ -46,7 +41,6 @@
                 if (char.Parse(Console.ReadLine().ToLower()) == 'y')
                     TryDivision();
             }
-
         }
     }
 }

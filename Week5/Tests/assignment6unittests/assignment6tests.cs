@@ -1,7 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-
 namespace Assignment5to7.Tests
 {
     [TestFixture]

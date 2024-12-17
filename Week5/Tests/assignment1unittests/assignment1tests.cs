@@ -1,7 +1,3 @@
-using NUnit.Framework;
-using System;
-using System.IO;
-
 namespace Assignment1.Tests
 {
     [TestFixture]

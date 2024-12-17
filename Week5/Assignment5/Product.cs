@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Assignment5to7
+﻿namespace Assignment5to7
 {
     public class Product
     {
@@ -28,14 +22,10 @@ namespace Assignment5to7
 
         public void UpdateStock(int amount)
         {
-
-            if(this.Stock + amount < 0)
-            {
+            if (Stock + amount < 0)
                 throw new ArgumentException("Error: Amount exceeds stock.");
-            } else
-            {
-                this.Stock += (int)amount;
-            }
+            else
+                Stock += (int)amount;
         }
     }
 }

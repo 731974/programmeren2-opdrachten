@@ -1,6 +1,4 @@
-﻿using System.Diagnostics;
-
-namespace Assignment5to7
+﻿namespace Assignment5to7
 {
     public class Program
     {
@@ -40,12 +38,11 @@ namespace Assignment5to7
         public Order AskForOrder(List<Product> inventory)
         {
             Order order = null;
-                
+
             try
             {
                 Console.Write("Enter product name: ");
                 string productName = Console.ReadLine();
-
                 Console.Write("Enter quantity: ");
                 int quantity = int.Parse(Console.ReadLine());
 
@@ -70,14 +67,13 @@ namespace Assignment5to7
 
                 OrderManager orderManager = new();
                 orderManager.ProcessOrder(inventory, order);
-                
             }
             catch (InvalidOperationException productEx)
             {
                 Console.WriteLine("Error: Insufficient stock.");
                 AddLog("Error: Insufficient stock.");
             }
-            catch (ArgumentException stockEx )
+            catch (ArgumentException stockEx)
             {
                 Console.WriteLine("Error: Product not found in inventory.");
                 AddLog("Error: Product not found in inventory.");
@@ -87,23 +83,19 @@ namespace Assignment5to7
                 AddLog("Error: Product not found in inventory.");
                 Console.WriteLine("Error: Product not found in inventory.");
             }
-
         }
 
         public void DisplayInventory(List<Product> inventory)
         {
             Console.WriteLine("Inventory:");
 
-            foreach(Product p in inventory)
+            foreach (Product p in inventory)
             {
-
                 Console.WriteLine($"Product: {p.Name}");
                 Console.WriteLine($"Price: {p.Price:f2}");
                 Console.WriteLine($"Current Stock: {p.Stock}");
                 Console.WriteLine();
-
             }
-
         }
 
         public void AddLog(string log)
@@ -119,19 +111,23 @@ namespace Assignment5to7
                 int amount = int.Parse(Console.ReadLine());
                 product.UpdateStock(amount);
 
-            } catch
-            {
-                Console.WriteLine("Error: Amount exceeds stock.");
-                AddLog($"Error: Amount exceeds stock.");
             }
-
-            Console.WriteLine($"Updated Stock for Laptop: {product.Stock}");
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+                AddLog(ex.Message);
+            }
+            finally
+            {
+                Console.WriteLine($"Updated Stock for {product.Name}: {product.Stock}");
+            }
         }
 
         public void PrintAllLogs(List<string> logs)
         {
             Console.WriteLine("Logs:");
-            foreach (string log in logs) {
+            foreach (string log in logs)
+            {
                 Console.WriteLine($"- {log}");
             }
         }
