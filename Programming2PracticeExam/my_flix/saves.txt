@@ -1,0 +1,4 @@
+Movie|Epic|Animation|96|Walt Disney|1
+Movie|Tar|Drama|158|Todd Field|2
+TVEpisode|The Office|Comedy|22|4|13|3
+TVEpisode|The Bear|Action|48|2|21|4
