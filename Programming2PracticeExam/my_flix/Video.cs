@@ -8,7 +8,6 @@ namespace my_flix
 {
     abstract class Video : IStreamable
     {
-
         public int Id { get; }
         public string Title { get; }
         public string Genre { get; }

@@ -1,6 +1,6 @@
 ﻿namespace Assignment6
 {
-    internal class Program
+    public class Program
     {
         const string FileName = "../../../notes.txt";
         bool wantsToExit = false;
@@ -13,14 +13,12 @@
 
         void Start()
         {
-            
             while (!wantsToExit)
                 ShowMenu(FileName);
 
-            Console.WriteLine("Exiting program.");
         }
 
-        void ShowMenu(string fileName) 
+        public void ShowMenu(string fileName)
         {
             try
             {
@@ -38,9 +36,12 @@
                 else if (option == 2)
                     ViewNotes(fileName);
                 else if (option == 3)
+                {
                     wantsToExit = true;
+                    Console.WriteLine("Exiting program.");
+                }
                 else
-                    Console.WriteLine("Enter a number between 1-3\r\n");
+                    Console.WriteLine("Not a valid choice.");
             }
             catch (FormatException ex)
             {
@@ -48,7 +49,8 @@
             }
         }
 
-        void AddNote(string fileName) {
+        public void AddNote(string fileName)
+        {
             Console.Write("Enter your note: ");
             string note = Console.ReadLine();
 
@@ -56,7 +58,7 @@
             {
                 using (StreamWriter sw = new StreamWriter(fileName, true))
                     sw.WriteLine(note);
-            }               
+            }
             catch (IOException ex)
             {
                 Console.WriteLine($"Error. {ex.Message}");
@@ -64,7 +66,8 @@
             Console.WriteLine();
         }
 
-        void ViewNotes(string fileName) {
+        public void ViewNotes(string fileName)
+        {
 
             try
             {
@@ -74,11 +77,11 @@
                     while (!sr.EndOfStream)
                         Console.WriteLine(sr.ReadLine());
             }
-            catch (IOException ex) 
+            catch (IOException ex)
             {
                 Console.WriteLine($"Error. {ex.Message}");
             }
             Console.WriteLine();
         }
-    } 
+    }
 }

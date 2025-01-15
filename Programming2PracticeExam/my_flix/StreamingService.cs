@@ -8,19 +8,19 @@ namespace my_flix
 {
     internal class StreamingService
     {
-        private List<Video> Library = new List<Video>();
-        private Dictionary<int, bool> WatchStatus = new Dictionary<int, bool>();
+        private List<Video> library = new List<Video>();
+        private Dictionary<int, bool> watchStatus = new Dictionary<int, bool>();
 
         public void AddVideo(Video mediaObject)
         {
-            Library.Add(mediaObject);
+            library.Add(mediaObject);
 
-            WatchStatus.Add(mediaObject.Id, false);
+            watchStatus.Add(mediaObject.Id, false);
         }
 
-        public Video FindByVideoBYId(int ID)
+        public Video FindByVideoById(int ID)
         {
-            foreach (Video video in Library) 
+            foreach (Video video in library) 
                 if (video.Id == ID) return video;
 
             throw new VideoNotFoundException($"video with id {ID} not found");
@@ -28,20 +28,20 @@ namespace my_flix
 
         public void WatchVideo(int ID)
         {
-            Video requestedVideo = FindByVideoBYId(ID);
+            Video requestedVideo = FindByVideoById(ID);
 
             requestedVideo.StartStream();
             requestedVideo.EndStream();
 
-            WatchStatus[requestedVideo.Id] = true;
+            watchStatus[requestedVideo.Id] = true;
         }
 
         List<Video> GetVideosByStatus(bool isWatched)
         {
             List<Video> filteredListOfVideos = new List<Video>();
             
-            foreach (Video video in Library)
-                if (WatchStatus[video.Id] == isWatched)
+            foreach (Video video in library)
+                if (watchStatus[video.Id] == isWatched)
                     filteredListOfVideos.Add(video);
 
             return filteredListOfVideos;
@@ -49,12 +49,12 @@ namespace my_flix
 
         int GetTotalDurationOfVideos(List<Video> list)
         {
-            int sum = 0;
+            int totalDuration = 0;
 
-            foreach(Video video in list)
-                sum += video.Duration;
+            foreach (Video video in list)
+                totalDuration += video.Duration;
 
-            return sum;
+            return totalDuration;
         }
 
         void DisplayVideos(List<Video> list)
@@ -75,9 +75,8 @@ namespace my_flix
             DisplayVideos(watchedVideos);
             Console.WriteLine();
 
-            List<Video> yetToDiscover = GetVideosByStatus(false);
             Console.WriteLine("Unwatched videos:");
-            DisplayVideos(yetToDiscover);
+            DisplayVideos(GetVideosByStatus(false));
         }
     }
 }

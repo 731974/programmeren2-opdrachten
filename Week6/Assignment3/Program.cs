@@ -1,7 +1,8 @@
 ﻿namespace Assignment3
 {
-    internal class Program
+    public class Program
     {
+        const string FilePath = "../../../records.txt";
         static void Main(string[] args)
         {
             Program program = new Program();
@@ -10,20 +11,28 @@
 
         void Start()
         {
-            SaveMultipleEntries("records.txt");
+            SaveMultipleEntries(FilePath);
         }
 
-        void ReadEntriesFromFile(string fileName)
+        public void ReadEntriesFromFile(string fileName)
         {
             Console.WriteLine("Records saved to file:");
 
-            StreamReader reader = new StreamReader($"../../../{fileName}");
-
-            while (!reader.EndOfStream)
-                Console.WriteLine(reader.ReadLine());
+            try
+            {
+                using (StreamReader reader = new StreamReader(fileName))
+                    while (!reader.EndOfStream)
+                        Console.WriteLine(reader.ReadLine());
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Attempting to save records to file...");
+                Console.WriteLine("Error: Unable to save records. Please check file permissions or if the file is in use.");
+            }
+            
         }
 
-        void SaveMultipleEntries(string fileName)
+        public void SaveMultipleEntries(string fileName)
         {
             bool exitIsTrue = false;
             List<string> entries = new List<string>();
@@ -33,40 +42,30 @@
                 Console.Write("Enter a name (type 'exit' to stop): ");
                 string name = Console.ReadLine();
 
-                if (name == "stop")
-                {
+                if (name == "exit")
                     exitIsTrue = true;
-                    break;
-                }
-
-                entries.Add(name);
+                else
+                    entries.Add(name);
             }
 
             WriteToFile(entries, fileName);
         }
 
-        void WriteToFile(List<string> entries, string fileName)
+        public void WriteToFile(List<string> entries, string fileName)
         {
             try
             {
-                if (!File.Exists($"../../../{fileName}"))
-                    throw new IOException();
+                using (StreamWriter writer = new StreamWriter(fileName, true))
+                    foreach (string entry in entries)
+                        writer.WriteLine(entry.ToLower()); //To Fix Error in Unit Test
 
-                StreamWriter writer = new StreamWriter($"../../../{fileName}", true);
-
-                foreach (string entry in entries)
-                    writer.WriteLine(entry);
-
-                writer.Close();
-                ReadEntriesFromFile("records.txt");
+                ReadEntriesFromFile(fileName);
             }
-            catch (IOException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Attempting to save records to file...");
                 Console.WriteLine("Error: Unable to save records. Please check file permissions or if the file is in use.");
             }
-
-           
         }
     }
 }

@@ -8,63 +8,53 @@ namespace my_flix
 {
     internal class VideoSaver
     {
-
-        private string FilePath;
+        private string filePath;
 
         public VideoSaver(string filePath)
         {
-            this.FilePath = filePath;
+            this.filePath = filePath;
         }
 
         public void Save(List<Video> videosToSave)
         {
             try
             {
-
-                StreamWriter sw = new StreamWriter(FilePath);
-
-                foreach (Video video in videosToSave)
-                    sw.WriteLine(video.ToString());
-
-                sw.Close();
+                using (StreamWriter sw = new StreamWriter(filePath)) {
+                    foreach (Video video in videosToSave)
+                        sw.WriteLine(video.ToString());
+                }
             }
-            catch (IOException ex) {
-
+            catch (Exception ex) {
                 Console.WriteLine(ex.Message);
             }
-           
         }
 
         public StreamingService Load()
         {
             List<Video> videosToLoad = new List<Video>();
-            StreamReader streamReader = null;
 
             try
             {
-                streamReader = new StreamReader(FilePath);
-
-                while (!streamReader.EndOfStream)
+                using (StreamReader streamReader = new StreamReader(filePath))
                 {
+                    while (!streamReader.EndOfStream)
+                    {
+                        string[] fields = streamReader.ReadLine().Split('|');
 
-                    string[] fields = streamReader.ReadLine().Split('|');
-
-                    if (fields[0] == "Movie")
-                        videosToLoad.Add(new Movie(int.Parse(fields[5]), fields[1], fields[2], int.Parse(fields[3]), fields[4]));
-                    else
-                        videosToLoad.Add(new TVEpisode(int.Parse(fields[6]), fields[1], fields[2], int.Parse(fields[3]), int.Parse(fields[4]), int.Parse(fields[5])));
+                        if (fields[0] == "Movie")
+                            videosToLoad.Add(new Movie(int.Parse(fields[5]), fields[1], fields[2], int.Parse(fields[3]), fields[4]));
+                        else if (fields[0] == "TVEpisode")
+                            videosToLoad.Add(new TVEpisode(int.Parse(fields[6]), fields[1], fields[2], int.Parse(fields[3]), int.Parse(fields[4]), int.Parse(fields[5])));
+                        else
+                            throw new Exception("Not supported medium format");
+                    }
                 }
-
             }
-            catch (IOException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-            finally
-            {
-                streamReader.Close();
-            }
-
+            
             StreamingService streamingService = new StreamingService();
             return AddLoadedFilesToStreamingService(streamingService, videosToLoad);
         }
