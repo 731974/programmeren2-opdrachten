@@ -1,6 +1,6 @@
 ﻿namespace Assignment2
 {
-    internal class Program
+    public class Program
     {
         const string PathToFile = "../../../safe_data.txt";
         static void Main(string[] args)
@@ -11,36 +11,33 @@
 
         void Start()
         {
-
-            Console.Write("Enter a text to save to file: ");
-            string userInput = Console.ReadLine();
-            SafeFileReadWrite(userInput);
-
+            SafeFileReadWrite(PathToFile);
         }
 
-        void SafeFileReadWrite(string userInput)
+        public void SafeFileReadWrite(string filePath)
         {
+            Console.Write("Enter a text to save to file: ");
+
             try
             {
-                StreamWriter writer = new StreamWriter(PathToFile);
-                writer.Write(userInput);
-                writer.Close();
-                Console.WriteLine("Data written successfully.\r\n");
+                using (StreamWriter writer = new StreamWriter(filePath))
+                    writer.Write(Console.ReadLine());
+                    Console.WriteLine("Data written successfully.\r\n");
             }
-            catch (IOException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error: Unable to write to file.");
             }
 
-
             try
             {
-                StreamReader reader = new StreamReader(PathToFile);
-                Console.WriteLine("Reading file content:");
-                Console.WriteLine(reader.ReadLine());
-                reader.Close();
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    Console.WriteLine("Reading file content:");
+                    Console.WriteLine(reader.ReadLine());
+                }
             }
-            catch (IOException ex)
+            catch (Exception ex)
             {
                 Console.WriteLine("Error: Unable to read from file.");
             }

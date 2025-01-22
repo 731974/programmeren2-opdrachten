@@ -8,10 +8,9 @@ namespace my_flix
 {
     internal class Movie : Video
     {
-
         public string Director { get; }
 
-        public Movie(int id, string title, string genre, int duration, string director) : base(id, title, genre, duration)
+        public Movie (int id, string title, string genre, int duration, string director) : base(id, title, genre, duration)
         {
             Director = director;
         }

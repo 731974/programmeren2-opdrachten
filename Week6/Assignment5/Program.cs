@@ -1,7 +1,9 @@
 ﻿namespace Assignment5
 {
-    internal class Program
+    public class Program
     {
+        const string PathToLog = "../../../log.txt";
+
         static void Main(string[] args)
         {
             Program program = new Program();
@@ -13,48 +15,17 @@
 
             try
             {
-                StreamReader reader = new StreamReader("../../../doc.txt");
-                while (!reader.EndOfStream)
-                    Console.WriteLine(reader.ReadLine);
-                reader.Close();
+                using (StreamReader sr = new StreamReader("../../test.txt"))
+                {
+                    string line = sr.ReadLine();
+                    Console.WriteLine(line);
+                }
             }
-            catch (FileNotFoundException e)
+            catch (FileNotFoundException ex)
             {
-                LogFileErrors("Error: File not Found ", "log.txt");
+                LogFileErrors(new FileNotFoundException("File not found"), PathToLog);
             }
 
-            try
-            {
-                StreamReader reader = new StreamReader("../../../../doc.txt");
-                while (!reader.EndOfStream)
-                    Console.WriteLine(reader.ReadLine);
-            }
-            catch (DirectoryNotFoundException e)
-            {
-                LogFileErrors("Error: Directory not Found ", "log.txt");
-            }
-            catch (FileNotFoundException e)
-            {
-                LogFileErrors("Error: File not Found ", "log.txt");
-            }
-
-            try
-            {
-                StreamReader reader = new StreamReader("../../../test.txt");
-                while (!reader.EndOfStream)
-                    Console.WriteLine(reader.ReadLine);
-
-                StreamWriter writer = new StreamWriter("../../../test.txt");
-                writer.WriteLine("Some extra data");
-                writer.Close();
-                reader.Close();
-            }
-            catch (IOException e)
-            {
-                LogFileErrors("Error: Invalid operation ", "log.txt");
-            }
-
-            ReadAllLogErrors("log.txt");
         }
 
         void ReadAllLogErrors(string fileName)
@@ -65,11 +36,12 @@
                 Console.WriteLine(reader.ReadLine());
         }
 
-        void LogFileErrors(string exception, string fileName)
+      public void LogFileErrors(Exception ex, string fileName)
         {
-            StreamWriter writer = new StreamWriter($"../../../{fileName}", true);
-            writer.WriteLine(exception);
+            StreamWriter writer = new StreamWriter(fileName, true);
+            writer.WriteLine($"Error: {ex.Message}");
             writer.Close();
         }
+
     }
 }

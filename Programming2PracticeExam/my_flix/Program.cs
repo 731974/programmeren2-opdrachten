@@ -46,7 +46,7 @@
 
             try
             {
-                Video video = streamingService.FindByVideoBYId(5);
+                Video video = streamingService.FindByVideoById(5);
             }
             catch (VideoNotFoundException ex)
             {

@@ -1,7 +1,8 @@
 ﻿namespace Assignment1
 {
-    internal class Program
+    public class Program
     {
+        const string FilePath = "../../../user_input.txt";
         static void Main(string[] args)
         {
             Program program = new Program();
@@ -10,23 +11,22 @@
 
         void Start()
         {
-            Console.Write("Enter a text to save to file: ");
-            string userInput = Console.ReadLine();
-
-            WriteToFile(userInput);
+            WriteToFile(FilePath);
             Console.WriteLine();
-            ReadFromFile("../../../user_input.txt");
+            ReadFromFile(FilePath);
         }
 
-        void WriteToFile(string userInput)
+        public void WriteToFile(string filePath)
         {
-
             try
             {
-                StreamWriter writer = new StreamWriter("../../../user_input.txt");
-                writer.WriteLine(userInput);
-                Console.WriteLine("Data written to file successfully.");
-                writer.Close();
+                Console.Write("Enter a text to save to file: ");
+
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine(Console.ReadLine());
+                    Console.WriteLine("Data written to file successfully.");
+                }
             }
             catch (IOException ex)
             {
@@ -34,20 +34,21 @@
             }
         }
 
-        void ReadFromFile(string fileName)
+        public void ReadFromFile(string filePath)
         {
             Console.WriteLine("Reading from file:");
             try
             {
-                StreamReader reader = reader = new StreamReader(fileName);
-                reader.Close();
-                Console.WriteLine(reader.ReadLine());
+                using (StreamReader reader = new StreamReader(filePath))
+                {
+                    while (!reader.EndOfStream)
+                        Console.WriteLine(reader.ReadLine());
+                }
             }
             catch (IOException ex)
             {
                 Console.WriteLine(ex.Message);
             }
-         
         }
     }
 }
